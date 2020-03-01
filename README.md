@@ -1,53 +1,59 @@
-# Express API
-
-## Objectives
-
-By the end of this, developers should be able to:
-
-- Write five CRUD endpoints for a library API resource using Express and Javascript.
-
+// domain.com/api
+router.get('/api/people', function (req, res) {
+    res.json({
+        people: people
+    });
+});
 
 
-## Preparation
+// Get Person by Record ID
+router.get('/api/people/:id', function(req, res) {
+    const personID = req.params.id;
 
-1. create a new project with 
+    if (!isNaN(personID)) {
+        
+        const person = people[personID];
+        if (person !== undefined) {
+          res.json({ person: person });
+        } else {
+          res.status(404).json({ error: 'Person Not Found' });
+        }
+    } else {
+        // invalid ID key
+        res.status(406).json({
+            error: 'InvalidID'
+        })
+    }
 
-```
-npm init
-```
-
-2. install express
-```
-npm install express --save
-```
-
-3. create a server file and chenge main in package.json to server.js
-```
-touch server.js
-```
-
-4. create a git ignore file and add node_modules into it
-```
-touch .gitignore
-```
+});
 
 
+// problem here can get req.body
+// create a person
+router.post('/api/people', function (req, res) {
+    console.log(req.body);
+    
+    people.push(req.body.person)
+    
+    res.status(201).json({people: people})
+})
 
 
 
+// update a person
+router.put('/api/people/:id', function (req,res) {
+    const personId = req.params.id;
+    console.log(req.body);
+    people[personId] = req.body.person
+    res.send('Got a PUT request at /user')
+})
 
-Most apps need to do a bit more than always sending back "Hello world". To get
-some more exposure to Express, build out a minimal API in
-that that we can
-use to store books for a library.
 
-Our app will have three routes available:
+// delete a person
+router.delete('/api/people/:id', function (req, res) {
+    const personId = req.params.id;
+    console.log(req.body);
+    people.splice(personId, 1)
 
-- `GET /books`: respond with JSON of all books.
-- `GET /books/:id`: respond with JSON of one book.
-- `POST /books/:id` : creates a new book and responds with a JSON of all books.
-
-- `PUT /books/:id` : to update a a book.
-- `DELETE /books/:id`: delete book based on id, then respond with success.  
-We can not use the browser URL to test our delete requests so let's use an application [Postman](https://www.getpostman.com/) to do so.
-
+    res.send('Got a DELETE request at /user')
+  })
