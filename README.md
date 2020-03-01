@@ -31,6 +31,15 @@ touch server.js
 touch .gitignore
 ```
 
+use this as base for your library appliation
+```
+const books = [
+  { title: 'Dictionary', author: 'Webster' }, // 0
+  { title: 'Encyclopedia', author: 'Encarta' }, // 1
+  { title: 'Clean Code', author: 'Robert Cecil Martin' } // 2
+]
+
+```
 
 
 
