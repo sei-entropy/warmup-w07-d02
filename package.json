@@ -1,0 +1,22 @@
+{
+  "name": "warmup-w07-d02",
+  "version": "1.0.0",
+  "description": "## Objectives",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h-aljahbli-GA/warmup-w07-d02.git"
+  },
+  "author": "Hisham Aljahbli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/h-aljahbli-GA/warmup-w07-d02/issues"
+  },
+  "homepage": "https://github.com/h-aljahbli-GA/warmup-w07-d02#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
