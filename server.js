@@ -52,10 +52,10 @@ app.get('/', function(req ,res){
        app.get('/books/:id', function(req,res){
       
         const bookId = req.params.id;
-        const book = people[bookId];
+        const book = books[bookId];
 
         if (book !== undefined) {
-            res.json({ books: books });
+            res.json({ books: book });
           } else {
             res.status(404).json({ error: 'books Not Found'});
           }
@@ -67,11 +67,7 @@ app.get('/', function(req ,res){
        app.post('/books', function(req,res){
       
         books.push(req.body.book)
-          res.status(201).json({
-            books : books
-          })
- 
- 
+          res.status(201).json({books: books})
         })
 
         //update person 
