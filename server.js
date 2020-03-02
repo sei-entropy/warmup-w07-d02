@@ -10,6 +10,13 @@ const app = express();
 // a route uses it
 app.use(express.json());
 
+
+app.get('/', function(req, res) { 
+  // when a request comes in at localhost:3000, it will respond 
+  res.send("Hello");
+});
+
+
 const books = [
   { title: "Dictionary", author: "Webster" }, // 0
   { title: "Encyclopedia", author: "Encarta" }, // 1
