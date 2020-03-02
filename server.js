@@ -39,7 +39,7 @@ app.put('/books/:id', function(req, res) {
 // DELETE /books/:id deletes a book
 
 app.delete('/books/:id', function(req, res) {
-    books.slice(req.params.id, 1);
+    books.splice(req.params.id, 1);
     res.send('Deleted a book of id ' + req.params.id);
 });
   
